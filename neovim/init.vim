@@ -107,6 +107,17 @@ set completeopt+=noselect
 " making sure the preview window closes for the completion option
 autocmd CompleteDone * if !pumvisible() | pclose | endif
 
+" ------------------------------Prettier settings--------------------------
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+" ------------------------------Neoformat settings-------------------------
+" making it format on savw
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
 " ------------------------------Status Bar---------------------------------
 set statusline=
 set statusline+=%#TabLine#
@@ -123,6 +134,12 @@ set statusline+=\ [%n]
 
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
+    Plug 'rhysd/vim-clang-format'
+    Plug 'sbdchd/neoformat'
+    Plug 'cjrh/vim-conda'
+    Plug 'hdima/python-syntax'
+    Plug 'jmcantrell/vim-virtualenv'
+    Plug 'vim-scripts/pylint.vim'
     Plug 'fatih/vim-go'
     Plug 'sainnhe/forest-night'
     Plug 'tpope/vim-commentary'
@@ -147,9 +164,11 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'rbong/vim-flog'
     Plug 'racer-rust/vim-racer'
+    Plug 'arzg/vim-rust-syntax-ext'
     Plug 'msanders/snipmate.vim'
     Plug 'sainnhe/forest-night'
     Plug 'sheerun/vim-polyglot'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-surround'
