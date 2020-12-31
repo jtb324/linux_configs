@@ -1,14 +1,14 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
-source ~/.vimrc
 
 " -------------------------------General Settings---------------------------
 " turning on syntax
 syntax on
 " specific settings
-
+set scrolloff=7
 set history=1000
 set undolevels=1000
+set encoding=UTF-8
 set hlsearch
 set showcmd
 set showmatch
@@ -32,12 +32,22 @@ set softtabstop=4
 set backspace=indent,eol,start
 set noswapfile
 set cursorline
+set guifont=DroidSansMono\ Nerd\ Font:h12
 
+" Allowing NERDTree to show hidden files
+let NERDTreeShowHidden=1
+
+let g:webdevicons_enable=1
 " Setting the color scheme
 colorscheme forest-night
 
 " enable true color support
 set termguicolors
+
+" setting to close vim if nerdtree is the last window
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+let g:webdevicons_enable_nerdtree = 1
+" Adding devicons to the nerdtree
 
 " --------------------------------Key Bindings-------------------------------
 
@@ -63,6 +73,21 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Mappings for NERDTree
+nnoremap <C-T> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" redraw the screen and removes any search highlighting
+nnoremap <silent> <C-c> :nohl<CR><C-c>
+
+" bindings to move between tabs
+nnoremap <A-Left> :tabprevious<CR>
+nnoremap <A-Right> :tabnext<CR>
+
+" mapping a key to opening a terminal at the bottom of the screen
+nno:remap <Leader>\t :bottom terminal<CR>
 
 if !has('nvim')
     set ttymouse=xterm2
@@ -98,6 +123,11 @@ set statusline+=\ [%n]
 
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
+    Plug 'tpope/vim-commentary'
+    Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'PhilRunninger/nerdtree-visual-selection'
+    Plug 'mhinz/vim-startify'
+    Plug 'liuchengxu/vim-which-key'
     Plug 'vifm/vifm.vim'
     Plug 'nelstrom/vim-markdown-folding'
     Plug 'tpope/vim-markdown'
@@ -118,8 +148,10 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'msanders/snipmate.vim'
     Plug 'sainnhe/forest-night'
     Plug 'sheerun/vim-polyglot'
+    Plug 'preservim/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
-
+lua require'colorizer'.setup()
 " --------------------------Alacritty Specific------------------------------
 " next line will make sure vim has no background so that it extends to the end
 " of the terminal screen
