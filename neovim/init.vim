@@ -123,6 +123,8 @@ set statusline+=\ [%n]
 
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
+    Plug 'fatih/vim-go'
+    Plug 'sainnhe/forest-night'
     Plug 'tpope/vim-commentary'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'PhilRunninger/nerdtree-visual-selection'
@@ -150,6 +152,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'tpope/vim-surround'
 call plug#end()
 lua require'colorizer'.setup()
 " --------------------------Alacritty Specific------------------------------
