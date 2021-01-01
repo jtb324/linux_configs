@@ -1,7 +1,14 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
+"    ____      _ __
+"   /  _/___  (_) /_    __(_)___ ___
+"   / // __ \/ / __/\  / / / __ `__ \
+" _/ // / / / / /__\ \/ / / / / / / /
+"/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
+
+
 
 " -------------------------------General Settings---------------------------
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
 " turning on syntax
 syntax on
 " specific settings
