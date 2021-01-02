@@ -79,7 +79,7 @@ autocmd CompleteDone * if !pumvisible() | pclose | endif
 " ------------------------------Prettier settings--------------------------
 " source ~/.config/nvim/prettier.vim 
 " ------------------------------Neoformat settings-------------------------
-" source ~/.config/nvim/neoformat.vim
+source ~/.config/nvim/neoformat.vim
 
 " ----------------------- Vim-Which-Key Settings---------------------------
 source ~/.config/nvim/vim_which_key.vim
