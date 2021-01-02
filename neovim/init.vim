@@ -5,7 +5,6 @@
 "/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
 
 
-
 " -------------------------------General Settings---------------------------
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -57,91 +56,41 @@ let g:webdevicons_enable_nerdtree = 1
 " Adding devicons to the nerdtree
 
 " --------------------------------Key Bindings-------------------------------
-
-" Press f7 to activate spell checking, and f8 to turn it off
-map <F7> <Esc>:setlocal spell spelllang=en_us<CR>
-map <F8> <Esc>:setlocal nospell<CR>
-map <C-s> :source ~/.config/nvim/init.vim<CR>
-" keybinding for Vifm
-map <C-b> :EditVifm .<CR>
-
-"Adding a mapping so that you can move lines up and down
-xnoremap K :move '<-2<CR>gv-gv
-xnoremap J :move '>+1<CR>gv-gv
-
-" Remapping the arrow keys so that they resize the split panes
-nnoremap <Up> :resize +2<CR>
-nnoremap <Down> :resize -2<CR>
-nnoremap <Left> :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
-
-" Remapping the keys to move between panes
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Mappings for NERDTree
-nnoremap <C-T> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" redraw the screen and removes any search highlighting
-nnoremap <silent> <C-c> :nohl<CR><C-c>
-
-" bindings to move between tabs
-nnoremap <A-Left> :tabprevious<CR>
-nnoremap <A-Right> :tabnext<CR>
-
-" mapping a key to opening a terminal at the bottom of the screen
-nno:remap <Leader>\t :bottom terminal<CR>
+source ~/.config/nvim/keybinding.vim
 
 if !has('nvim')
     set ttymouse=xterm2
 endif
 
 " -------------------------------Kite Autocomplete---------------------------
+" source ~/.config/nvim/kite.vim
 " MAKE KITE WORK FOR EVERY LANGUAGE
 let g:kite_supported_languages = ['*']
 
 " use tab to complete instead of super key <C-a>
-let g:kit_tab_complete=1
+let g:kite_tab_complete=1
 
 " Setting parameter for completion and autocompletion
 set completeopt+=menuone
 set completeopt+=noselect
 
 " making sure the preview window closes for the completion option
-autocmd CompleteDone * if !pumvisible() | pclose | endif
-
+autocmd CompleteDone * if !pumvisible() | pclose | endif 
 " ------------------------------Prettier settings--------------------------
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-
+" source ~/.config/nvim/prettier.vim 
 " ------------------------------Neoformat settings-------------------------
-" making it format on savw
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" source ~/.config/nvim/neoformat.vim
+
+" ----------------------- Vim-Which-Key Settings---------------------------
+source ~/.config/nvim/vim_which_key.vim
 
 " ------------------------------Status Bar---------------------------------
-set statusline=
-set statusline+=%#TabLine#
-set statusline+=\ %M
-set statusline+=\ %y
-set statusline+=\ %r
-set statusline+=\ %F
-set statusline+=%= "adds items to the right side"
-set statusline+=%#PmenuThumb#
-set statusline+=\ %c:%l/%L
-set statusline+=\ %p%%
-set statusline+=\ [%n]
-
+source ~/.config/nvim/statusbar.vim
 
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
+    Plug 'kiteco/vim-plugin'
     Plug 'sbdchd/neoformat'
     Plug 'cjrh/vim-conda'
     Plug 'hdima/python-syntax'
