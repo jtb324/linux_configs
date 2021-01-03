@@ -99,6 +99,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'fatih/vim-go'
     Plug 'sainnhe/forest-night'
     Plug 'tpope/vim-commentary'
+    Plug 'szw/vim-maximizer'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'PhilRunninger/nerdtree-visual-selection'
     Plug 'mhinz/vim-startify'
