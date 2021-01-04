@@ -51,10 +51,12 @@ nnoremap <silent><LEADER>n :NERDTreeToggle<CR>
 " Open NerdTree and focus on current file
 nnoremap <silent><LEADER>N :NERDTreeFind<CR>:NERDTreeFocus<CR>
 
+" -------------------------Windows Keybindings------------------------
 " Maximize window. <F3> also works.
 nnoremap <silent><C-W>e :MaximizerToggle<CR>  
 vnoremap <silent><C-W>e :MaximizerToggle<CR>gv
 inoremap <silent><C-W>e <C-o>:MaximizerToggle<CR>
+
 
 " redraw the screen and removes any search highlighting
 nnoremap <silent> <C-c> :nohl<CR><C-c>

@@ -40,12 +40,16 @@ set noswapfile
 set cursorline
 set guifont=DroidSansMono\ Nerd\ Font:h12
 
+" Making it where new windows open on the top and bottom
+set splitbelow
+set splitright
+
 " Allowing NERDTree to show hidden files
 let NERDTreeShowHidden=1
 
 let g:webdevicons_enable=1
 " Setting the color scheme
-colorscheme forest-night
+colorscheme ayu
 
 " enable true color support
 set termguicolors
@@ -87,13 +91,18 @@ source ~/.config/nvim/vim_which_key.vim
 " ------------------------------Status Bar---------------------------------
 source ~/.config/nvim/statusbar.vim
 
+" ------------------------IndentLine Settings------------------------------
+
+source ~/.config/nvim/indentLine.vim 
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
     Plug 'kiteco/vim-plugin'
+    Plug 'ayu-theme/ayu-vim'
     Plug 'sbdchd/neoformat'
     Plug 'cjrh/vim-conda'
     Plug 'hdima/python-syntax'
+    Plug 'sakshamgupta05/vim-todo-highlight'
     Plug 'jmcantrell/vim-virtualenv'
     Plug 'vim-scripts/pylint.vim'
     Plug 'fatih/vim-go'

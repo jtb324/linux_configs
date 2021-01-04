@@ -26,11 +26,7 @@ let g:which_key_map.w = {
       \ 'w-' : ['<C-W>w-'     , 'split-window-below']    ,
       \ 'w/' : ['<C-W>w/'     , 'split-window-right']    ,
       \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'x' : ['<C-W>x'    , 'rotate-window-with-neighboring'],
       \ 'J' : [':resize +5'  , 'expand-window-below']   ,
       \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
       \ 'K' : [':resize -5'  , 'expand-window-up']      ,
@@ -38,5 +34,11 @@ let g:which_key_map.w = {
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
       \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
+      \ 'r' : ['<C-W>r'     , 'rotate-windows-clockwise'],
+      \ 'R' : ['<C-W>R'     , 'rotate-windows-counterclockwise'],
+      \ 'e' : ['<C-W>e'     , 'maximize-window']
+      \}
 
+let g:which_key_map.c = {
+      \ 'c' : ['<C-c>'      , 'remove-search-highlighting'],
+      \}
