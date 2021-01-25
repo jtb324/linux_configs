@@ -39,6 +39,17 @@ inoremap "" ""<Left>
 inoremap '' ''<Left>
 inoremap `` ``<Left>
 
+" ----------------------fzf keybinding-------------------
+map <LEADER>f :FZF<CR>
+map <LEADER>fRg :Rg<CR>
+map <LEADER>fF :Files<CR>
+map <LEADER>fBl :BLines<CR>
+
+" Setting different keys for splitting panes that follow my vim
+" bindings to split the pane
+let g:fzf_action = {
+    \ 'ctrl-i': 'split',
+    \ 'ctrl-v': 'vsplit'}
 " opens the previous buffer while closing the current buffer
 noremap <C-x> :bp<Bar>bd #<Cr>
 
@@ -53,9 +64,9 @@ nnoremap <silent><LEADER>N :NERDTreeFind<CR>:NERDTreeFocus<CR>
 
 " -------------------------Windows Keybindings------------------------
 " Maximize window. <F3> also works.
-nnoremap <silent><C-W>e :MaximizerToggle<CR>  
-vnoremap <silent><C-W>e :MaximizerToggle<CR>gv
-inoremap <silent><C-W>e <C-o>:MaximizerToggle<CR>
+nnoremap <silent><LEADER>We :MaximizerToggle<CR>  
+vnoremap <silent><LEADER>We :MaximizerToggle<CR>gv
+inoremap <silent><LEADER>We <C-o>:MaximizerToggle<CR>
 
 
 " redraw the screen and removes any search highlighting

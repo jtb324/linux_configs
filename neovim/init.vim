@@ -23,6 +23,7 @@ set wrap
 set incsearch
 set ignorecase
 set smartcase
+set nocompatible
 set autowrite
 set history=100
 set number
@@ -40,6 +41,9 @@ set noswapfile
 set cursorline
 set guifont=DroidSansMono\ Nerd\ Font:h12
 
+let g:gitgutter_terminal_reports_focus=0
+
+let g:gitgutter_git_executable = '/usr/local/bin/git'
 " Making it where new windows open on the top and bottom
 set splitbelow
 set splitright
@@ -48,6 +52,7 @@ set splitright
 let NERDTreeShowHidden=1
 
 let g:webdevicons_enable=1
+
 " Setting the color scheme
 colorscheme ayu
 
@@ -58,6 +63,17 @@ set termguicolors
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let g:webdevicons_enable_nerdtree = 1
 " Adding devicons to the nerdtree
+
+" --------------------------------Ascii Art----------------------------------
+let g:startify_custom_header = [
+\ '                            _           ',
+\ '     ____  ___  ____ _   __(_)___ ___   ',
+\ '    / __ \/ _ \/ __ \ | / / / __ `__ \  ',
+\ '   / / / /  __/ /_/ / |/ / / / / / / /  ',
+\ '  /_/ /_/\___/\____/|___/_/_/ /_/ /_/   ',
+\ '',
+\ '',
+\ ]
 
 " --------------------------------Key Bindings-------------------------------
 source ~/.config/nvim/keybinding.vim
@@ -85,8 +101,9 @@ autocmd CompleteDone * if !pumvisible() | pclose | endif
 " ------------------------------Neoformat settings-------------------------
 source ~/.config/nvim/neoformat.vim
 
-" ----------------------- Vim-Which-Key Settings---------------------------
-source ~/.config/nvim/vim_which_key.vim
+" ------------------------------ Fzf.vim ---------------------------------
+
+source ~/.config/nvim/fzf.vim
 
 " ------------------------------Status Bar---------------------------------
 source ~/.config/nvim/statusbar.vim
@@ -97,6 +114,7 @@ source ~/.config/nvim/indentLine.vim
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
+    Plug 'airblade/vim-rooter'
     Plug 'kiteco/vim-plugin'
     Plug 'ayu-theme/ayu-vim'
     Plug 'sbdchd/neoformat'
@@ -110,9 +128,10 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'szw/vim-maximizer'
     Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'junegunn/fzf.vim'
     Plug 'PhilRunninger/nerdtree-visual-selection'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'mhinz/vim-startify'
-    Plug 'liuchengxu/vim-which-key'
     Plug 'vifm/vifm.vim'
     Plug 'nelstrom/vim-markdown-folding'
     Plug 'tpope/vim-markdown'
@@ -123,8 +142,6 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'rust-lang/rust.vim'
     Plug 'jiangmiao/auto-pairs'
     Plug 'alvan/vim-closetag'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'dense-analysis/ale'
     Plug 'airblade/vim-gitgutter'
@@ -138,6 +155,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-eunuch'
 call plug#end()
 lua require'colorizer'.setup()
 " --------------------------Alacritty Specific------------------------------
