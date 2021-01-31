@@ -76,6 +76,9 @@ nnoremap <silent> <C-c> :nohl<CR><C-c>
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-Right> :tabnext<CR>
 
+" keybinding to change 2 split windows from vert to horiz or horiz to vert
+map <Leader>th <C-w>t<C-w>H
+map <Leader>tk <C-w>t<C-w>K
 " TODO Fix this
 " mapping a key to opening a terminal at the bottom of the screen
 " nnoremap <Leader>\t :bottom terminal<CR>

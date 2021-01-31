@@ -39,7 +39,7 @@ set softtabstop=4
 set backspace=indent,eol,start
 set noswapfile
 set cursorline
-set guifont=DroidSansMono\ Nerd\ Font:h12
+set guifont=DroidSansMono\ Nerd\ Font:h14
 
 let g:gitgutter_terminal_reports_focus=0
 
@@ -54,7 +54,7 @@ let NERDTreeShowHidden=1
 let g:webdevicons_enable=1
 
 " Setting the color scheme
-colorscheme ayu
+colorscheme palenight
 
 " enable true color support
 set termguicolors
@@ -65,7 +65,7 @@ let g:webdevicons_enable_nerdtree = 1
 " Adding devicons to the nerdtree
 
 " --------------------------------Ascii Art----------------------------------
-let g:startify_custom_header = [
+let g:ascii = [
 \ '                            _           ',
 \ '     ____  ___  ____ _   __(_)___ ___   ',
 \ '    / __ \/ _ \/ __ \ | / / / __ `__ \  ',
@@ -73,7 +73,9 @@ let g:startify_custom_header = [
 \ '  /_/ /_/\___/\____/|___/_/_/ /_/ /_/   ',
 \ '',
 \ '',
-\ ]
+\]
+let g:startify_custom_header = 
+    \ 'startify#pad(g:ascii + startify#fortune#boxed())'
 
 " --------------------------------Key Bindings-------------------------------
 source ~/.config/nvim/keybinding.vim
@@ -82,6 +84,8 @@ if !has('nvim')
     set ttymouse=xterm2
 endif
 
+" --------------------------------Vim Spector--------------------------------
+" let g:vimspector_enable_mappings = HUMAN nmap <leader>dd :call vimspector#Launch()<CR>
 " -------------------------------Kite Autocomplete---------------------------
 " source ~/.config/nvim/kite.vim
 " MAKE KITE WORK FOR EVERY LANGUAGE
@@ -111,21 +115,27 @@ source ~/.config/nvim/statusbar.vim
 " ------------------------IndentLine Settings------------------------------
 
 source ~/.config/nvim/indentLine.vim 
+
+" -------------------------markdown preview--------------------------------
+source ~/.config/nvim/markdown_preview.vim
+
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
+    " Plug 'puremourning/vimspector'
     Plug 'airblade/vim-rooter'
     Plug 'kiteco/vim-plugin'
     Plug 'ayu-theme/ayu-vim'
     Plug 'sbdchd/neoformat'
+    Plug 'drewtempelmeyer/palenight.vim'
     Plug 'cjrh/vim-conda'
     Plug 'hdima/python-syntax'
     Plug 'sakshamgupta05/vim-todo-highlight'
     Plug 'jmcantrell/vim-virtualenv'
     Plug 'vim-scripts/pylint.vim'
     Plug 'fatih/vim-go'
-    Plug 'sainnhe/forest-night'
     Plug 'tpope/vim-commentary'
+    Plug 'arcticicestudio/nord-vim'
     Plug 'szw/vim-maximizer'
     Plug 'norcalli/nvim-colorizer.lua'
     Plug 'junegunn/fzf.vim'
@@ -156,6 +166,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-eunuch'
+    Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 lua require'colorizer'.setup()
 " --------------------------Alacritty Specific------------------------------

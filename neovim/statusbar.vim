@@ -12,16 +12,21 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
-set statusline=
-set statusline=%{StatuslineGit()}
+set statusline= 
+set statusline=%2*\%{StatuslineGit()}
 set statusline+=%#TabLine#
 set statusline+=\ %M
 set statusline+=\ %y
 set statusline+=\ %r
 set statusline+=\ %f
 set statusline+=%= "adds items to the right side
-set statusline+=%#PmenuThumb#
-set statusline+=%{kite#statusline()}
-set statusline+=\ %c:%l/%L
-set statusline+=\ %p%%
-set statusline+=\ [%n]
+set statusline+=%1*\ %{kite#statusline()}
+set statusline+=%1*\ \|
+set statusline+=%1*\ %c:%l/%L
+set statusline+=%1*\ %p%%
+set statusline+=%1*\ [%n]
+
+hi StatusLineNC gui=reverse 
+hi User1 guifg=#000000 guibg=#bababa
+hi User2 guifg=#ffffff guibg=#4b4b4b gui=BOLD
+
