@@ -66,11 +66,12 @@ let g:webdevicons_enable_nerdtree = 1
 
 " --------------------------------Ascii Art----------------------------------
 let g:ascii = [
-\ '                            _           ',
-\ '     ____  ___  ____ _   __(_)___ ___   ',
-\ '    / __ \/ _ \/ __ \ | / / / __ `__ \  ',
-\ '   / / / /  __/ /_/ / |/ / / / / / / /  ',
-\ '  /_/ /_/\___/\____/|___/_/_/ /_/ /_/   ',
+\ '                                       ',
+\'     _   __         _    ___             ',     
+\'    / | / /__  ____| |  / (_)___ ___     ',
+\'   /  |/ / _ \/ __ \ | / / / __ `__ \    ',
+\'  / /|  /  __/ /_/ / |/ / / / / / / /    ',
+\' /_/ |_/\___/\____/|___/_/_/ /_/ /_/    ',
 \ '',
 \ '',
 \]
@@ -100,6 +101,8 @@ set completeopt+=noselect
 
 " making sure the preview window closes for the completion option
 autocmd CompleteDone * if !pumvisible() | pclose | endif 
+"  Command to be able to run prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " ------------------------------Prettier settings--------------------------
 " source ~/.config/nvim/prettier.vim 
 " ------------------------------Neoformat settings-------------------------
@@ -119,10 +122,17 @@ source ~/.config/nvim/indentLine.vim
 " -------------------------markdown preview--------------------------------
 source ~/.config/nvim/markdown_preview.vim
 
+" -----------------------------snipmate------------------------------------
+source ~/.config/nvim/snipmate_settings.vim
+
+" ----------------------------coc------------------------------------------
+source ~/.config/nvim/plug-config/coc.vim
+
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
     " Plug 'puremourning/vimspector'
+    Plug 'neovim/nvim-lspconfig'
     Plug 'airblade/vim-rooter'
     Plug 'kiteco/vim-plugin'
     Plug 'ayu-theme/ayu-vim'
@@ -158,12 +168,16 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'rbong/vim-flog'
     Plug 'racer-rust/vim-racer'
     Plug 'arzg/vim-rust-syntax-ext'
-    Plug 'msanders/snipmate.vim'
+    Plug 'garbas/vim-snipmate'
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'honza/vim-snippets'
     Plug 'sainnhe/forest-night'
     Plug 'sheerun/vim-polyglot'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-eunuch'
     Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -173,4 +187,4 @@ lua require'colorizer'.setup()
 " next line will make sure vim has no background so that it extends to the end
 " of the terminal screen
 "hi! Normal ctermbg=NONE guibg=NONE
-"hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+"hi! NonText ctermbg=sdfasdfasdNONE guibg=NONE guifg=NONE ctermfg=NONE

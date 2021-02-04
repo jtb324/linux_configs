@@ -8,9 +8,9 @@ let mapleader="\<SPACE>"
 "Press f7 to activate spell checking, and f8 to turn it off
 map <F7> <Esc>:setlocal spell spelllang=en_us<CR>
 map <F8> <Esc>:setlocal nospell<CR>
-map <C-s> :source ~/.config/nvim/init.vim<CR>
+map <C-z> :source ~/.config/nvim/init.vim<CR>
 " keybinding for Vifm
-map <C-b> :EditVifm .<CR>
+map <LEADER>b :EditVifm .<CR>
 
 "Adding a mapping so that you can move lines up and down
 xnoremap K :move '<-2<CR>gv-gv
@@ -40,10 +40,10 @@ inoremap '' ''<Left>
 inoremap `` ``<Left>
 
 " ----------------------fzf keybinding-------------------
-map <LEADER>f :FZF<CR>
-map <LEADER>fRg :Rg<CR>
-map <LEADER>fF :Files<CR>
-map <LEADER>fBl :BLines<CR>
+map <LEADER>i :FZF<CR>
+map <LEADER>iRg :Rg<CR>
+map <LEADER>iF :Files<CR>
+map <LEADER>iBl :BLines<CR>
 
 " Setting different keys for splitting panes that follow my vim
 " bindings to split the pane
