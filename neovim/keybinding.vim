@@ -29,6 +29,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" creating a mapping for the display keybindings function
+nnoremap <LEADER>sk :call DisplayKeyMap()<CR>
 " Remapping keys so that we you type the brackets it will automatically move
 " cursor inbetween the two brackets
 inoremap <> <><Left>

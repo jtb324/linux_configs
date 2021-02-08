@@ -78,12 +78,6 @@ let g:ascii = [
 let g:startify_custom_header = 
     \ 'startify#pad(g:ascii + startify#fortune#boxed())'
 
-" --------------------------------Key Bindings-------------------------------
-source ~/.config/nvim/keybinding.vim
-
-if !has('nvim')
-    set ttymouse=xterm2
-endif
 
 " --------------------------------Vim Spector--------------------------------
 " let g:vimspector_enable_mappings = HUMAN nmap <leader>dd :call vimspector#Launch()<CR>
@@ -103,8 +97,13 @@ set completeopt+=noselect
 autocmd CompleteDone * if !pumvisible() | pclose | endif 
 "  Command to be able to run prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" ------------------------------Prettier settings--------------------------
+
+" -----------------------------vim-keybinding Settings--------------------
+source ~/vimfiles/plugged/vim-keybinding/plugin/vim-keybinding.vim
+
+"------------------------------Prettier settings--------------------------
 " source ~/.config/nvim/prettier.vim 
+
 " ------------------------------Neoformat settings-------------------------
 source ~/.config/nvim/neoformat.vim
 
@@ -128,11 +127,20 @@ source ~/.config/nvim/snipmate_settings.vim
 " ----------------------------coc------------------------------------------
 source ~/.config/nvim/plug-config/coc.vim
 
+" --------------------------------Key Bindings-------------------------------
+source ~/.config/nvim/keybinding.vim
+" --------------------------Vim termfloat Plugin---------------------------
+source ~/.config/nvim/float-term.vim
+
+if !has('nvim')
+    set ttymouse=xterm2
+endif
 " -------------------------------Plugins-----------------------------------
 call plug#begin('~/vimfiles/plugged')
     Plug 'rhysd/vim-clang-format'
     " Plug 'puremourning/vimspector'
     Plug 'neovim/nvim-lspconfig'
+    Plug 'tbastos/vim-lua'
     Plug 'airblade/vim-rooter'
     Plug 'kiteco/vim-plugin'
     Plug 'ayu-theme/ayu-vim'
@@ -145,6 +153,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'vim-scripts/pylint.vim'
     Plug 'fatih/vim-go'
     Plug 'tpope/vim-commentary'
+    Plug 'voldikss/vim-floaterm'
     Plug 'arcticicestudio/nord-vim'
     Plug 'szw/vim-maximizer'
     Plug 'norcalli/nvim-colorizer.lua'
@@ -173,6 +182,7 @@ call plug#begin('~/vimfiles/plugged')
     Plug 'tomtom/tlib_vim'
     Plug 'honza/vim-snippets'
     Plug 'sainnhe/forest-night'
+    Plug 'rafcamlet/nvim-luapad'
     Plug 'sheerun/vim-polyglot'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
     Plug 'preservim/nerdtree'
